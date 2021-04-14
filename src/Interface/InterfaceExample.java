@@ -1,5 +1,8 @@
 package Interface;
 
+abstract class IMyAbstract{
+	abstract void myfunc();
+}
 interface IBank{
 	void openaccount();
 	void closeaccount();
@@ -9,7 +12,7 @@ interface IBankAccount{
 	void withdraw();
 	void balance();
 }
-class SavingAccount implements IBankAccount, IBank{
+class SavingAccount extends IMyAbstract implements IBankAccount, IBank{
 
 	@Override
 	public void deposite() {
@@ -40,10 +43,16 @@ class SavingAccount implements IBankAccount, IBank{
 		System.out.println("Close Account in Saving Account!!!");
 		
 	}
+
+	@Override
+	void myfunc() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 
-class CurrentAccount implements IBankAccount, IBank{
+class CurrentAccount extends IMyAbstract implements IBankAccount, IBank{
 
 	@Override
 	public void deposite() {
@@ -72,6 +81,12 @@ class CurrentAccount implements IBankAccount, IBank{
 	@Override
 	public void closeaccount() {
 		System.out.println("Close Account in Current Account!!!");
+		
+	}
+
+	@Override
+	void myfunc() {
+		// TODO Auto-generated method stub
 		
 	}
 	
